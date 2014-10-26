@@ -12,20 +12,22 @@
         <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <link rel="shortcut icon" href="/bootstrap/img/favicon.ico">
-        <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
 
-        <!-- JavaScript jQuery code from Bootply.com editor  -->
-        <script src="{{ asset('js/gAnalitics.js') }}"></script>
         <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 
 
         <!-- CSS code from Bootply.com editor -->
         
         <style type="text/css">
-            .modal-footer {   border-top: 0px; }
+           body{
+                background: url(http://mymaplist.com/img/parallax/back.png);
+              background-color: #444;
+                background: url(http://mymaplist.com/img/parallax/pinlayer2.png),url(http://mymaplist.com/img/parallax/pinlayer1.png),url(http://mymaplist.com/img/parallax/back.png);    
+            }
+
+            .vertical-offset-100{
+                padding-top:100px;
+            }
         </style>
     </head>
     
@@ -80,5 +82,18 @@
 
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>   
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $(document).mousemove(function(e){
+               TweenLite.to($('body'), 
+                  .5, 
+                  { css: 
+                      {
+                          backgroundPosition: ""+ parseInt(event.pageX/8) + "px "+parseInt(event.pageY/'12')+"px, "+parseInt(event.pageX/'15')+"px "+parseInt(event.pageY/'15')+"px, "+parseInt(event.pageX/'30')+"px "+parseInt(event.pageY/'30')+"px"
+                      }
+                  });
+            });
+          });
+        </script>
     </body>
 </html>
