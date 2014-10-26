@@ -24,7 +24,7 @@ Route::get('/logout', 'UserController@logout');
 //--------------------------------------
 
 
-Route::group(array('prefix' => 'admin'), function()
+Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 {
 	
 	/*
