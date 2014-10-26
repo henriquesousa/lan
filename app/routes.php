@@ -21,8 +21,8 @@ Route::any('/logando',[
 
 
 Route::get('/logout', 'UserController@logout');
-//--------------------------------------
 
+Route::get('/index', 'UserController@login');
 
 Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 {
