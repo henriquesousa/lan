@@ -15,12 +15,7 @@ abstract class BaseValidator
      */
     protected $errors;
 
-    /**
-     * An array of sanitizers to be executed
-     * before the validation process.
-     *
-     * @var array
-     */
+    
     protected $sanitizers = [];
 
     /**
