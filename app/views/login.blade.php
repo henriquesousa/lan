@@ -19,6 +19,7 @@
 
         <!-- JavaScript jQuery code from Bootply.com editor  -->
         <script src="{{ asset('js/gAnalitics.js') }}"></script>
+        <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 
 
         <!-- CSS code from Bootply.com editor -->
@@ -31,49 +32,51 @@
     <!-- HTML code from Bootply.com editor -->
     
     <body  >
-        
-        <!--login modal-->
-        <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h1 class="text-center">Login</h1>
-              </div>
 
 
-              <!--login erros-->
-                  @if (isset($errors))
-                    @foreach($errors->all() as $error)
-                      <div class="alert alert-danger" role="alert">
-                        {{ $error }}
-                      </div>
-                    @endforeach
-                  @endif
-              <!--login erros-->
+    
 
-              <div class="modal-body center-block">
-                  {{ Form::open(array('route' => 'logon')) }}
+    <div class="container">
+        <div class="row vertical-offset-100">
+          <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Please sign in</h3>
+            </div>
+              <div class="panel-body">
+                {{ Form::open(array('route' => 'logon')) }}
+                        <fieldset>
                     <div class="form-group">
-                      <input type="text" name="username" class="form-control input-lg" placeholder="Nome de Usuário">
+                      <input class="form-control" placeholder="E-mail" name="email" type="text">
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  </div>
+                  <div class="checkbox">
+                      <label>
+                        <!--login erros-->
+                          @if (isset($errors))
+                            @foreach($errors->all() as $error)
+                              <div class="alert alert-danger" role="alert">
+                                {{ $error }}
+                              </div>
+                            @endforeach
+                          @endif
+                      <!--login erros-->
+                      </label>
                     </div>
-                    <div class="form-group">
-                      <input type="password" name="password" class="form-control input-lg" placeholder="Senha">
-                    </div>
-                    <div class="form-group">
-                      <button class="btn btn-primary btn-lg btn-block">Entrar</button>
+                      
+                      <input class="btn btn-lg btn-success btn-block" type="submit" value="Entrar">
                       <span class="pull-right">{{ HTML::linkRoute('funcionario_add', 'Registre-se') }}</span>
                       <span>{{ HTML::link('sobre', 'Precisa de Ajuda?', array('id' => '')) }}</span>
-                    </div>
-                  {{ Form::close() }}
+                </fieldset>
+                 {{ Form::close() }}
               </div>
-              <div class="modal-footer">
-                  <div class="col-md-12">
-                  <h4 class="text-center">MINOTAURE - LANHOUSE - SYSTEM LOGIN</h4>
-                  </div>    
-              </div>
-          </div>
           </div>
         </div>
+      </div>
+    </div>
+
 
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>   
