@@ -2,27 +2,29 @@
 
 Route::get('/sobre', function()
 {
-	return View::make('about');
+	return View::make('ajuda');
 });
 
 
 /*
 | Metodos da Classe UserController
 */
-Route::any('/login',[
-		"as"   => "login",
-		"uses" => "UserController@login"
-]);
+Route::any('/login',"UserController@login");
 
 Route::any('/logando',[
 	"as"   => "logon",
 	"uses" => "UserController@logon"
 ]);
 
-
 Route::get('/logout', 'UserController@logout');
 
 Route::get('/index', 'UserController@login');
+
+Route::any("/funcionario/add", [
+		"as" => "funcionario_add",
+		"uses" => "FuncionariosController@create"
+	]);
+
 
 Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 {
@@ -39,11 +41,6 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 	Route::any('/funcionarios',[
 		"as"   => "funcionarios",
 		"uses" => "FuncionariosController@lists"
-	]);
-
-	Route::any("/funcionario/add", [
-		"as" => "funcionario_add",
-		"uses" => "FuncionariosController@create"
 	]);
 
 	Route::any("/funcionario/store", [

@@ -41,9 +41,9 @@
     <div class="container">
         <div class="row vertical-offset-100">
           <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Please sign in</h3>
+            <div class="panel panel-success">
+              <div class="panel-heading text-center">
+                <h3 class="panel-title">Área Restrita - Usuários Cadastrados</h3>
             </div>
               <div class="panel-body">
                 {{ Form::open(array('route' => 'logon')) }}
