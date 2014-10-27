@@ -49,10 +49,10 @@
                 {{ Form::open(array('route' => 'logon')) }}
                         <fieldset>
                     <div class="form-group">
-                      <input class="form-control" placeholder="Usuario" name="usuario" type="text">
+                      <input class="form-control" placeholder="Usuario" name="username" type="text">
                   </div>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                    <input class="form-control" placeholder="Senha" name="password" type="password" value="">
                   </div>
                   <div class="checkbox">
                       <label>
