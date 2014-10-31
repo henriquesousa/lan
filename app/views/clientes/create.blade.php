@@ -114,9 +114,6 @@
                       </div>
                     </div>
 
-<<<<<<< HEAD
-                    
-=======
                     <!-- Text input-->
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="Usuario">Nome de Usuário:</label>  
@@ -127,7 +124,7 @@
 
                     
 
->>>>>>> 002fa0246a438152834034d59c9702de6ec85d08
+
 
                   </div>
                 </div><!-- / painel-->
