@@ -114,18 +114,7 @@
                       </div>
                     </div>
 
-                    <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="Usuario">Nome de Usuário:</label>  
-                      <div class="col-md-5">
-                        {{ Form::text('username', isset($cliente->username) ? $cliente->username : Input::old('username'), array('class' => 'form-control input-md')) }}
-                      </div>
-                    </div>
-
                     
-
-
-
                   </div>
                 </div><!-- / painel-->
                 
