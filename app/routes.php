@@ -82,14 +82,14 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 		"uses" => "ClientesController@create"
 	]);
 
-	Route::any('/cliente/{id}',[
-		"as"   => "cliente",
-		"uses" => "ClientesController@show"
-	]);
-
 	Route::any("/cliente/store", [
 		"as" => "cliente_store",
 		"uses" => "ClientesController@store"
+	]);
+
+	Route::any('/cliente/{id}',[
+		"as"   => "cliente",
+		"uses" => "ClientesController@show"
 	]);
 
 	Route::any("/cliente/edit/{id}", [

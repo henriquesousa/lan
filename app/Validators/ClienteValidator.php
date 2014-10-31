@@ -2,7 +2,7 @@
 
 namespace Validators;
 
-class ClientesValidator extends BaseValidator
+class ClienteValidator extends BaseValidator
 {
 	/**
      * Regras de Validaçao para o Validator.
@@ -28,18 +28,9 @@ class ClientesValidator extends BaseValidator
             'email'    => ['required', 'email'],
             'phone'    => ['required', 'min:13'],
             '_token'    => ['required']
-        ],
+        ]
 
     ];
 
-    /**
-     * Anexar um padrão sanitizer para esta
-     * instancia de validação.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->attachSanitizer(new UsersSanitizer);
-    }
+    
 }

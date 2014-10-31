@@ -18,7 +18,7 @@
 
   	{{ Form::open([
       "route" => "funcionario_store",
-      "autocomplete" => "off",
+      "autocomplete" => "on",
       "class" => "form-horizontal"
     ]) }}
     
@@ -28,6 +28,15 @@
                     <h3 class="panel-title text-center">DADOS CADASTRAIS</h3>
                   </div>
                   <div class="panel-body">
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Codigo">Código da Empresa:</label>  
+                      <div class="col-md-5">
+                        {{ Form::text('codigo', Input::old('codigo'), array('class' => 'form-control input-md')) }}
+                      </div>
+                    </div>
+
 
                     <!-- Text input-->
                     <div class="form-group">
@@ -114,7 +123,7 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="senha">Senha:</label>  
                     <div class="col-md-5">
-                      <input type="password" class="form-control input-md" placeholder="@@@@@@@@@@@@@" />
+                      <input type="password" class="form-control input-md" name="password" placeholder="@@@@@@@@@@@@@" />
                     </div>
                   </div>
 

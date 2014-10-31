@@ -53,10 +53,10 @@ class ClientesController extends BaseController {
 				$clientes = new Cliente();
 
 						$clientes->nome = ucwords(Input::get("nome")." ".Input::get("sobrenome"));
-						$clientes->rg = Input::get("rg");
-						$clientes->cpf = Input::get("cpf");
 						$clientes->sexo = Input::get("sexo");
 						$clientes->civil = Input::get("civil");
+						$clientes->rg = Input::get("rg");
+						$clientes->cpf = Input::get("cpf");
 						$clientes->email = Input::get("email");
 						$clientes->phone = Input::get("phone");
 						$clientes->save();

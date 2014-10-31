@@ -18,9 +18,10 @@
 
   	{{ Form::open([
       "route" => "cliente_store",
-      "autocomplete" => "off",
+      "autocomplete" => "on",
       "class" => "form-horizontal"
     ]) }}
+
               
                 <!-- Form Name -->
                 <h3>Adicionar cliente </h3>
@@ -31,6 +32,7 @@
                   </div>
                   <div class="panel-body">
 
+                    
                     <!-- Text input-->
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="Nome">Nome e Sobrenome:</label>  
@@ -112,22 +114,7 @@
                       </div>
                     </div>
 
-                    <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="Usuario">Nome de Usuário:</label>  
-                      <div class="col-md-5">
-                        {{ Form::text('username', isset($cliente->username) ? $cliente->username : Input::old('username'), array('class' => 'form-control input-md')) }}
-                      </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="Usuario">Senha:</label>  
-                      <div class="col-md-5">
-                        <input type="text" class="form-control input-md" placeholder="@@@@@@@@@@@@@" disabled="" />
-                      </div>
-                    </div>
-
+                    
 
                   </div>
                 </div><!-- / painel-->

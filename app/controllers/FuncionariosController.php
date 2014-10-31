@@ -46,10 +46,10 @@ class FuncionariosController extends BaseController {
 
 		$validator = new FuncionarioValidator;
 
-		if($this->validarCPF($input['cpf']))
-		{
-			if (Input::get('codigo') == 'wiver2014' and $validator->validate($input, 'create')) {
+		if (Input::get('codigo') == 'lan2014' and $validator->validate($input, 'create')) {
 			  	// validação OK
+			if($this->validarCPF($input['cpf']))
+			{
 				$funcionario = new Funcionario();
 
 						$funcionario->nome = ucwords(Input::get("nome")." ".Input::get("sobrenome"));
@@ -64,21 +64,16 @@ class FuncionariosController extends BaseController {
 						$funcionario->save();
 
 
-						$credentials = [
-						"username" => Input::get("username"),
-						"password" => Input::get("password")
-						];
-
-				if (Auth::attempt($credentials))
-				{
 				return Redirect::route("funcionarios");
-				}
+				
 				
 			}
+			
+			$errors['cpf'] = "CPF Invalido! Favor informar CPF corretamente";
+			return Redirect::back()->withErrors($errors)->withInput();
 		}
 		// falha na validação
 		$errors = $validator->errors();
-		$errors['cpf'] = "CPF Invalido! Favor informar CPF corretamente";
 		return Redirect::back()->withErrors($errors)->withInput();
 
 	}
@@ -171,7 +166,8 @@ class FuncionariosController extends BaseController {
 
 	function validarCPF($cpf){
       $cpf = str_pad(str_replace(array('.','-','/'),'',$cpf),11,'0',STR_PAD_LEFT);
-      $invalidos = array('00000000000', '11111111111', '22222222222', '33333333333', '44444444444', '55555555555', '66666666666', '77777777777', '88888888888', '99999999999');  
+      $invalidos = 
+      	array('00000000000', '11111111111', '22222222222', '33333333333', '44444444444', '55555555555', '66666666666', '77777777777', '88888888888', '99999999999');  
 
       if(strlen($cpf) != 11 || in_array($cpf,$invalidos)){
         return false;

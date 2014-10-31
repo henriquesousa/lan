@@ -13,7 +13,6 @@ class FuncionarioValidator extends BaseValidator
 
         'create' => [
             'nome' => ['required', 'min:3'],
-            'sobrenome' => ['required'],
             'rg' => ['required'],
             'cpf'    => ['required', 'unique:funcionarios'],
             'civil' => ['required'],
