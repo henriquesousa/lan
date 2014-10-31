@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 @section('head')
   @parent
     <title>cPanel - Cliente Editar</title>
@@ -120,13 +120,7 @@
                       </div>
                     </div>
 
-                    <!-- Text input-->
-                    <div class="form-group">
-                      <label class="col-md-4 control-label" for="Usuario">Senha:</label>  
-                      <div class="col-md-5">
-                        <input type="text" class="form-control input-md" placeholder="@@@@@@@@@@@@@" disabled="" />
-                      </div>
-                    </div>
+                    
 
 
                   </div>
