@@ -69,7 +69,7 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 	]);
 
 	/*
-		Rotas para Clientes
+		Rotas para Clientes ss
 	*/
 
 	Route::any('/cliente',[
