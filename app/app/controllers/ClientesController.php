@@ -44,8 +44,6 @@ class ClientesController extends BaseController {
 	{
 		$input = Input::all();
 
-		dd($input);
-
 		$validator = new ClienteValidator;
 
 		if($this->validarCPF($input['cpf']))
