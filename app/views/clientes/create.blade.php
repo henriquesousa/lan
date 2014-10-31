@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+﻿@extends('layouts.dashboard')
 @section('head')
   @parent
     <title>cPanel - Cliente Editar</title>
@@ -114,7 +114,20 @@
                       </div>
                     </div>
 
+<<<<<<< HEAD
                     
+=======
+                    <!-- Text input-->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="Usuario">Nome de Usuário:</label>  
+                      <div class="col-md-5">
+                        {{ Form::text('username', isset($cliente->username) ? $cliente->username : Input::old('username'), array('class' => 'form-control input-md')) }}
+                      </div>
+                    </div>
+
+                    
+
+>>>>>>> 002fa0246a438152834034d59c9702de6ec85d08
 
                   </div>
                 </div><!-- / painel-->

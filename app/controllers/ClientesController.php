@@ -21,7 +21,7 @@ class ClientesController extends BaseController {
 	{
 		$clientes = Cliente::orderBy('nome', 'ASC')->paginate(15);
 		$qtd = count($clientes);
-
+		return "teste";
 		return View::make('clientes.list', compact('clientes', 'qtd'));
 	}
 
@@ -43,6 +43,8 @@ class ClientesController extends BaseController {
 	public function store()
 	{
 		$input = Input::all();
+
+		dd($input);
 
 		$validator = new ClienteValidator;
 

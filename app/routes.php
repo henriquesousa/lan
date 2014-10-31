@@ -20,11 +20,6 @@ Route::get('/logout', 'UserController@logout');
 
 Route::get('/index', 'UserController@login');
 
-Route::any("/funcionario/add", [
-		"as" => "funcionario_add",
-		"uses" => "FuncionariosController@create"
-	]);
-
 
 Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 {
@@ -41,6 +36,11 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 	Route::any('/funcionarios',[
 		"as"   => "funcionarios",
 		"uses" => "FuncionariosController@lists"
+	]);
+
+	Route::any("/funcionario/add", [
+		"as" => "funcionario_add",
+		"uses" => "FuncionariosController@create"
 	]);
 
 	Route::any("/funcionario/store", [
