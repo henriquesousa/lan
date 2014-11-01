@@ -33,7 +33,10 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 	*/
 	Route::get('/', 'HomeController@index');
 	Route::get('/index', 'HomeController@index');
-	
+	Route::any('/index',[
+		"as"   => "index",
+		"uses" => "HomeController@index"
+	]);
 
 	Route::any('/funcionarios',[
 		"as"   => "funcionarios",
