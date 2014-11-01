@@ -46,20 +46,21 @@ class ClientesController extends BaseController {
 
 		$validator = new ClienteValidator;
 
-		if($this->validarCPF($input['cpf']))
+		if ($validator->validate($input, 'create')) 
 		{
-			if ($validator->validate($input, 'create')) {
+			if($this->validarCPF($input['cpf']))
+			{
 			  	// validação OK
-				$clientes = new Cliente();
+				$cliente = new Cliente();
 
-						$clientes->nome = ucwords(Input::get("nome")." ".Input::get("sobrenome"));
-						$clientes->sexo = Input::get("sexo");
-						$clientes->civil = Input::get("civil");
-						$clientes->rg = Input::get("rg");
-						$clientes->cpf = Input::get("cpf");
-						$clientes->email = Input::get("email");
-						$clientes->phone = Input::get("phone");
-						$clientes->save();
+						$cliente->nome = ucwords(Input::get("nome")." ".Input::get("sobrenome"));
+						$cliente->sexo = Input::get("sexo");
+						$cliente->civil = Input::get("civil");
+						$cliente->rg = Input::get("rg");
+						$cliente->cpf = Input::get("cpf");
+						$cliente->email = Input::get("email");
+						$cliente->phone = Input::get("phone");
+						$cliente->save();
 
 
 						
@@ -67,10 +68,11 @@ class ClientesController extends BaseController {
 				
 				
 			}
+			$errors['cpf'] = "CPF Invalido! Favor informar CPF corretamente";
+			return Redirect::back()->withErrors($errors)->withInput();
 		}
 		// falha na validação
 		$errors = $validator->errors();
-		$errors['cpf'] = "CPF Invalido! Favor informar CPF corretamente";
 		return Redirect::back()->withErrors($errors)->withInput();
 
 	}

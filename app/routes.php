@@ -9,6 +9,10 @@ Route::get('/sobre', function()
 /*
 | Metodos da Classe UserController
 */
+Route::get('/', 'UserController@login');
+
+Route::get('/index', 'UserController@login');
+
 Route::any('/login',"UserController@login");
 
 Route::any('/logando',[
@@ -18,7 +22,7 @@ Route::any('/logando',[
 
 Route::get('/logout', 'UserController@logout');
 
-Route::get('/index', 'UserController@login');
+
 
 
 Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
@@ -27,6 +31,10 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 	/*
 	| Rotas para Funcionários
 	*/
+	Route::any('/', function()
+	{
+		return View::make('index');
+	});
 
 	Route::any('/index', function()
 	{

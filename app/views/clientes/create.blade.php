@@ -61,7 +61,6 @@
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="genero">Sexo :</label>
                       <div class="col-md-4"> 
-                        @if( isset($cliente->sexo) ? $cliente->sexo : Input::old('sexo') and $cliente->sexo == "Masculino")
       	                  <label class="radio-inline" for="masculino">
       	                    <input type="radio" name="sexo" value="Masculino" checked="checked" />
       	                    Masculino
@@ -70,17 +69,7 @@
       	                    <input type="radio" name="sexo" value="Feminino" />
       	                    Feminino
       	                  </label>
-                        @else
-                        	<label class="radio-inline" for="feminino">
-                            <input type="radio" name="sexo" value="Feminino" checked="checked" />
-                            Feminino
-                          </label>
-                          <label class="radio-inline" for="masculino">
-                            <input type="radio" name="sexo" value="Masculino" />
-                            Masculino
-                          </label>
-                          
-                        @endif
+
                       </div>
                     </div>
 
