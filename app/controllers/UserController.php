@@ -53,7 +53,7 @@ class UserController extends Controller
 
 				if (Auth::attempt($credentials)) {
 
-					return Redirect::to('index');
+					return Redirect::route('index');
 
 				} else {
 					// falha na autenticacao
