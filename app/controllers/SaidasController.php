@@ -38,6 +38,7 @@ class SaidasController extends BaseController {
 	public function store()
 	{
 		$validator = Validator::make($data = Input::all(), Saida::$rules);
+		$valor = str_replace(',', '.', Input::get('valor'));
 
 		if ($validator->fails())
 		{
@@ -50,7 +51,7 @@ class SaidasController extends BaseController {
 		$saida->cliente_id		 = Input::get('cliente');
 		$saida->funcionario_id	 = Auth::user()->id;
 		$saida->status_id		 = Input::get('status');
-		$saida->valor 			 = Input::get('valor');
+		$saida->valor 			 = $valor;
 
 		$saida->save();
 
@@ -78,12 +79,13 @@ class SaidasController extends BaseController {
 	 */
 	public function edit($id)
 	{
+		
 		$saida = Saida::with('funcionario', 'produto', 'cliente', 'status')->find($id);
 		$funcionarios = funcionario::all();
 		$produtos = Produto::all();
 		$clientes = Cliente::all();
 
-		return View::make('saida.edit', compact('saida', 'funcionarios', 'produtos', 'clientes'));
+		return View::make('saidas.edit', compact('saida', 'funcionarios', 'produtos', 'clientes'));
 	}
 
 	/**
@@ -92,22 +94,35 @@ class SaidasController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
 		
 		$validator = Validator::make($data = Input::all(), Saida::$rules);
+		$valor = str_replace(',', '.', Input::get('valor'));
 
 		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
+	    {
+	    	$messages = $validator->messages();
+	        return Redirect::back()->withErrors($validator)->withInput();
+	    }
+
+	    else 
+	    {
+
+			$saida = Saida::find(Input::get('id'));
+			// validação OK
+			$data['valor'] = $valor;
+
+			dd($data);
+			$saida->update($data);
+
+			Session::flash('message', 'Saida editada com sucesso!');
+			return Redirect::route('saidas');
+			
 		}
 
-		$saida = Saida::findOrFail($id);
 
 		
-		$saida->save($data);
-
-		return Redirect::route('saidas');
 	}
 
 	/**

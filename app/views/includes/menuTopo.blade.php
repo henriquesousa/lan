@@ -23,13 +23,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-collapse navbar-bootsnipp-collapse collapse" style="height: 1px;">
         <ul class="nav navbar-nav">
-          <li class="">
-            @if(Auth::check())
-              {{ HTML::link('admin/index', 'Home') }} 
-            @else 
-              {{ HTML::link('index', 'Home') }} 
-            @endif
-          </li>
+          
           <li class="dropdown ">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Opções<b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -44,7 +38,6 @@
 
             </ul>
           </li>
-         <li>{{ HTML::link('sobre', 'Sobre') }}</li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

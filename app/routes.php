@@ -31,15 +31,9 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 	/*
 	| Rotas para Funcionários
 	*/
-	Route::any('/', function()
-	{
-		return View::make('index');
-	});
-
-	Route::any('/index', function()
-	{
-		return View::make('index');
-	});
+	Route::get('/', 'HomeController@index');
+	Route::get('/index', 'HomeController@index');
+	
 
 	Route::any('/funcionarios',[
 		"as"   => "funcionarios",
@@ -267,7 +261,7 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 		"uses" => "SaidasController@edit"
 	]);
 
-	Route::any("/saidas/update/{id}", [
+	Route::any("/saidas/update", [
 		"as" => "saida_update",
 		"uses" => "SaidasController@update"
 	]);

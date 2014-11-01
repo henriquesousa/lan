@@ -52,7 +52,6 @@
 	                        <th><input type="text" class="form-control" placeholder="Cliente" disabled></th>
 	                        <th><input type="text" class="form-control" placeholder="Produto" disabled></th>
 	                        <th><input type="text" class="form-control" placeholder="Valor Tot." disabled></th>
-	                        <th><input type="text" class="form-control" placeholder="Quantidade" disabled></th>
 	                        <th><input type="text" class="form-control" placeholder="Status" disabled></th>
 	                        <th><input type="text" class="form-control" placeholder="Funcionario" disabled></th>
 	                        <th colspan="2">Ações</th>
@@ -67,7 +66,6 @@
 									<td>{{ $saida->cliente->nome }}</td>
 									<td>{{ $saida->produto->nome }}</td>
 									<td>{{ $saida->valor * $saida->quantidade }}</td>
-									<td>{{ $saida->quantidade }}</td>
 									<td>{{ $saida->status->descricao }}</td>
 									<td>{{ $saida->funcionario->nome }}</td>
 									

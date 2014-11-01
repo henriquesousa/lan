@@ -20,6 +20,15 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function index()
+	{
+		$produtos = count(Produto::all());
+		$clientes = count(Cliente::all());
+		$fornecedores = count(Fornecedor::all());
+
+		return View::make('index', compact('produtos', 'clientes', 'fornecedores'));
+	}
+
 	public function pesquisar()
 	{
 		$campo = Input::get('campo');

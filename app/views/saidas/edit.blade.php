@@ -16,10 +16,12 @@
 
     <div class="table">
       {{ Form::open([
-        "route" => "saida_store",
+        "route" => "saida_update",
         "autocomplete" => "off",
         "class" => "form-horizontal"
       ]) }}
+
+      <input type="hidden" name="id" value="{{ $saida->id }}">
 
         <!-- Form Name -->
         <h3>Adicionar Saida </h3>
@@ -35,7 +37,7 @@
               <label class="col-md-4 control-label" for="cliente">Cliente :</label>
                 <div class="col-md-5 input-group">
                   <select id="cliente" name="cliente" class="form-control">
-                    <option value="{{ $cliente->id }}">{{ $cliente->nome }}</option>
+                    <option value="{{ $saida->cliente->id }}">{{ $saida->cliente->nome }}</option>
                     @foreach($clientes as $cliente)
                       <option value="{{ $cliente->id }}">{{ $cliente->nome }}</option>
                     @endforeach
@@ -95,7 +97,7 @@
                   <select id="status" name="status" class="form-control">
                     <option selected value="{{ $saida->status->id }}" >{{ $saida->status->descricao }}</optio>
                     
-                    <option value="1">Pendente</option>
+                    <option value="1">Aberto</option>
                     <option value="2">Concluido</option>
                     
                   </select>

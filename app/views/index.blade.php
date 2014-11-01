@@ -34,148 +34,48 @@
     <div class="container col-md-12">
       <h3>Listas</h3>
 
-      <div class="table">
-      
-
-      
-
-
-        <div class="panel panel-success"><!-- painel-->
-          <div class="panel-heading">
-            <h3 class="panel-title text-center">Dados para Listas</h3>
-          </div>
-          <div class="panel-body">
-
-          {{ Form::open([
-            "route" => "pesquisa",
-            "autocomplete" => "off",
-            "class" => "form-horizontal"
-          ]) }}
-          <input type="hidden" name="tabela" value="funcionarios">
-             <!-- Select Basic -->
-             <div class="form-group">
-              <label class="col-md-4 control-label" for="campos">Listar funcionario por:</label>
-                <div class="col-md-5">
-                  <select name="campo" class="form-control">
-                    <option value="rg">RG</option>
-                    <option value="cpf">CPF</option>
-                    <option value="sexo">Sexo</option>
-                   
-                  </select>
-                  {{ Form::text('valor', Input::old('valor'), array('class' => 'form-control input-md')) }}
-                </div>
-                 <input type="submit" value="Pesquisar" class="btn btn-sm btn-primary" />
-              </div>
-
-                       
-            {{ Form::close() }}
-
-            <hr>
-
-            {{ Form::open([
-              "route" => "pesquisa",
-              "autocomplete" => "off",
-              "class" => "form-horizontal"
-            ]) }}
-            <input type="hidden" name="tabela" value="clientes">
-               <!-- Select Basic -->
-               <div class="form-group">
-                <label class="col-md-4 control-label" for="campos">Listar clientes por:</label>
-                  <div class="col-md-5">
-                    <select name="campo" class="form-control">
-                      <option value="rg">RG</option>
-                      <option value="cpf">CPF</option>
-                      <option value="email">Email</option>
-                      <option value="sexo">Sexo</option>
-                     
-                    </select>
-                    {{ Form::text('valor', Input::old('valor'), array('class' => 'form-control input-md')) }}
-                  </div>
-                  
-                   <input type="submit" value="Pesquisar" class="btn btn-sm btn-primary" />
-                </div>
-
-                         
-              {{ Form::close() }}
-
-
-              <hr>
-
-            {{ Form::open([
-              "route" => "pesquisa",
-              "autocomplete" => "off",
-              "class" => "form-horizontal"
-            ]) }}
-            <input type="hidden" name="tabela" value="produtos">
-               <!-- Select Basic -->
-               <div class="form-group">
-                <label class="col-md-4 control-label" for="campos">Listar produtos por:</label>
-                  <div class="col-md-5">
-                    <select name="campo" class="form-control">
-                      <option value="descricao">Nome</option>
-                      <option value="valor">Valor</option>
-                      <option value="categoria_id">Categorias</option>
-                      <option value="fornecedor_id">Fornecedor</option>
-                     
-                    </select>
-                    {{ Form::text('valor', Input::old('valor'), array('class' => 'form-control input-md')) }}
-                  </div>
-                   <input type="submit" value="Pesquisar" class="btn btn-sm btn-primary" />
-                </div>
-
-                         
-              {{ Form::close() }}
 
 
 
-
-          </div>
-        </div><!-- /painel -->
-
-       
-    </div><!-- /table -->
-
-
-      <hr>
-      
+      <!-- thumbs de cada menu com quantidades cadastradas -->
       <div class="row">
-          <div class="panel panel-primary filterable">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Lista</h3>
-                  <div class="pull-right">
-                   
-                  </div>
-              </div>
-              <table class="table" id="mytable" >
-                  <thead>
-                      <tr class="filters">
-                          @if(isset($colunas))
-                          
-                            <th>{{ $colunas['id'] }}</th>
-                            <th>{{ $colunas['nome'] }}</th>
-                            <th>{{ $colunas['campo'] }}</th>
-                            
-                         
-                          @endif
-                      </tr>
-                  </thead>
-                  <tbody>
-                    @if(isset($resultados))
-                    @foreach ($resultados as $rst )
-                    <tr class="filters">
-                      <th>{{ $rst->id }}</th>
-                      <th>{{ $rst->nome }}</th>
-                      <th>{{ $rst->$colunas['campo'] }}</th>
-                    </tr>
-                    @endforeach
-                    @endif
-                      
-                  </tbody>
-              </table>
-
+        <div class="col-sm-6 col-md-4 text-center">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>Produtos Cadastrados</h3>
+              <p class="alert alert-info">{{ $produtos }}</p>
+              <p><a href="{{ URL::route('produtos') }}" class="btn btn-primary" role="button">Listar</a></p>
+            </div>
           </div>
-          
+        </div>
+      
+        <div class="col-sm-6 col-md-4 text-center">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>Clientes Cadastrados</h3>
+              <p class="alert alert-info">{{ $clientes }}</p>
+              <p><a href="{{ URL::route('clientes') }}" class="btn btn-primary" role="button">Listar</a></p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-sm-6 col-md-4 text-center">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3>Fornecedores Cadastrados</h3>
+              <p class="alert alert-info">{{ $fornecedores }}</p>
+              <p><a href="{{ URL::route('fornecedores') }}" class="btn btn-primary" role="button">Listar</a></p>
+            </div>
+          </div>
+        </div>
       </div>
+
+     
+
+
+
+
+
   </div>
 
 

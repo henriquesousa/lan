@@ -66,10 +66,7 @@
 									<td>
 										{{ HTML::linkRoute('funcionario_editar', 'Edit', array($funcionario->id), array('class' => 'btn btn-primary btn-xs')) }}
 									</td>
-	                        		<td>
-	                        			{{ HTML::linkRoute('funcionario_delete', 'Excl', array($funcionario->id), array('class' => 'btn btn-danger btn-xs')) }}
-	                        			
-	                        		</td>
+	                        		
 								</tr>
 							
 								@endforeach
