@@ -6,6 +6,9 @@
   @stop
 @section('conteudo')
 
+    
+
+  	<div class="table">
     @if (isset($errors))
       @foreach($errors->all() as $error)
         <div class="alert alert-danger" role="alert">
@@ -13,8 +16,6 @@
         </div>
       @endforeach
     @endif
-
-  	<div class="table">
 
   	{{ Form::open([
       "route" => "funcionario_store",

@@ -46,9 +46,12 @@ class FuncionariosController extends BaseController {
 
 		$validator = new FuncionarioValidator;
 
-		if (Input::get('codigo') == 'lan2014' and $validator->validate($input, 'create')) {
+
+
+		if ($validator->validate($input, 'create')) 
+		{
 			  	// validação OK
-			if($this->validarCPF($input['cpf']))
+			if($this->validarCPF($input['cpf']) and Input::get('codigo') == 'lan2014')
 			{
 				$funcionario = new Funcionario();
 
@@ -67,7 +70,7 @@ class FuncionariosController extends BaseController {
 				return Redirect::route("funcionarios");
 				
 				
-			}
+			}dd("teste");
 			
 			$errors['cpf'] = "CPF Invalido! Favor informar CPF corretamente";
 			return Redirect::back()->withErrors($errors)->withInput();
