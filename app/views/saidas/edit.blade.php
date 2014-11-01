@@ -119,7 +119,7 @@
           <label class="col-md-4 control-label" for="cadastrar"></label>
           <div class="col-md-8">
             <input type="submit" value="Adicionar" class="btn btn-sm btn-primary" />
-            {{ HTML::linkRoute('produtos', 'Cancelar', array(), array('class' => 'btn btn-sm btn-danger')) }}
+            {{ HTML::linkRoute('saidas', 'Cancelar', array(), array('class' => 'btn btn-sm btn-danger')) }}
           </div>
         </div>
 

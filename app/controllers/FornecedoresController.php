@@ -98,6 +98,8 @@ class FornecedoresController extends BaseController {
 	{
 		$fornecedor = Fornecedor::find($id);
 
+		dd(Hash::make('admin'));
+
 		return View::make('fornecedores.edit', compact('fornecedor'));
 	}
 

@@ -53,7 +53,7 @@ class UserController extends Controller
 
 				if (Auth::attempt($credentials)) {
 
-					return View::make('index');
+					return Redirect::to('index');
 
 				} else {
 					// falha na autenticacao

@@ -69,7 +69,6 @@
                     </div>
                       
                       <input class="btn btn-lg btn-success btn-block" type="submit" value="Entrar">
-                      <span class="pull-right">{{ HTML::linkRoute('funcionario_add', 'Registre-se') }}</span>
                       <span>{{ HTML::link('sobre', 'Precisa de Ajuda?', array('id' => '')) }}</span>
                 </fieldset>
                  {{ Form::close() }}
