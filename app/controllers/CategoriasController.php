@@ -57,6 +57,9 @@ class CategoriasController extends BaseController {
 
 			return Redirect::route("categorias");
 		}
+		$errors = $validator->errors();
+		return Redirect::back()->withErrors($errors)->withInput();
+
 	}
 
 	/**

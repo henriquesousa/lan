@@ -57,29 +57,35 @@
 
 
             <!-- Select Basic -->
-             <div class="form-group">
-            	<label class="col-md-4 control-label" for="categoria">Categoria :</label>
-                <div class="col-md-5">
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="categoria">Categoria :</label>
+                <div class="col-md-5 input-group">
                   <select id="categoria" name="categoria" class="form-control">
                     <option value=" ">...</option>
-                    @foreach($categorias as $categoria)
+                     @foreach($categorias as $categoria)
                       <option value="{{ $categoria->id }}">{{ $categoria->descricao }}</option>
                     @endforeach
                   </select>
+                  <div class="input-group-btn">
+                      <a class="btn btn-sm btn-success pull-right" href="{{ URL::route('categoria_add') }}"><i class="glyphicon glyphicon-plus"></i></a>
+                  </div>
                 </div>
               </div>
 
 
-            <!-- Select Basic -->
-             <div class="form-group">
-            	<label class="col-md-4 control-label" for="fornecedor">Fornecedor :</label>
-                <div class="col-md-5">
+
+              <div class="form-group">
+              <label class="col-md-4 control-label" for="fornecedor">Fornecedor :</label>
+                <div class="col-md-5 input-group">
                   <select id="fornecedor" name="fornecedor" class="form-control">
                     <option value=" ">...</option>
                     @foreach($fornecedores as $fornecedor)
                       <option value="{{ $fornecedor->id }}">{{ $fornecedor->nome }}</option>
                     @endforeach
                   </select>
+                  <div class="input-group-btn">
+                      <a class="btn btn-sm btn-success pull-right" href="{{ URL::route('fornecedor_add') }}"><i class="glyphicon glyphicon-plus"></i></a>
+                  </div>
                 </div>
               </div>
 
