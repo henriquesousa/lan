@@ -52,9 +52,9 @@ class SaidasController extends BaseController {
 		$saida->status_id		 = Input::get('status');
 		$saida->valor 			 = Input::get('valor');
 
-		$saida::save();
+		$saida->save();
 
-		return Redirect::route('saidas.list');
+		return Redirect::route('saidas');
 	}
 
 	/**
@@ -94,8 +94,7 @@ class SaidasController extends BaseController {
 	 */
 	public function update($id)
 	{
-		$saida = Saida::findOrFail($id);
-
+		
 		$validator = Validator::make($data = Input::all(), Saida::$rules);
 
 		if ($validator->fails())
@@ -103,9 +102,12 @@ class SaidasController extends BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$saida->update($data);
+		$saida = Saida::findOrFail($id);
 
-		return Redirect::route('saida.index');
+		
+		$saida->save($data);
+
+		return Redirect::route('saidas');
 	}
 
 	/**
@@ -118,7 +120,7 @@ class SaidasController extends BaseController {
 	{
 		Saida::destroy($id);
 
-		return Redirect::route('saida.index');
+		return Redirect::route('saidas');
 	}
 
 }

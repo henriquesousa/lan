@@ -75,7 +75,7 @@
 										{{ HTML::linkRoute('saida_edit', 'Edit', array($saida->id), array('class' => 'btn btn-primary btn-xs')) }}
 									</td>
 	                        		<td>
-	                        			{{ HTML::linkRoute('aida_delete', 'Excl', array($saida->id), array('class' => 'btn btn-danger btn-xs')) }}
+	                        			{{ HTML::linkRoute('saida_delete', 'Excl', array($saida->id), array('class' => 'btn btn-danger btn-xs confirm', 'data-confirm' => 'Você realmente deseja excluir o registro?')) }}
 	                        			
 	                        		</td>
 								</tr>
@@ -97,9 +97,12 @@
 @section('scripts')
 
 <script type="text/javascript">
-			/*
-			Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !
-			*/
+			(function($){
+				$('.confirm').on('click', function() {
+					return confirm($(this).data('confirm'));
+				});
+			}(jQuery));
+			
 			$(document).ready(function(){
  				  
  				  //mascara para exibição jquery

@@ -255,17 +255,17 @@ Route::group(array('prefix' => 'admin','before' => 'auth' ), function()
 	]);
 
 	Route::any("/saidas/edit/{id}", [
-		"as" => "saidas_edit",
+		"as" => "saida_edit",
 		"uses" => "SaidasController@edit"
 	]);
 
 	Route::any("/saidas/update/{id}", [
-		"as" => "saidas_update",
+		"as" => "saida_update",
 		"uses" => "SaidasController@update"
 	]);
 
 	Route::any("/saidas/delete/{id}", [
-		"as" => "saidas_delete",
+		"as" => "saida_delete",
 		"uses" => "SaidasController@destroy"
 	]);
 

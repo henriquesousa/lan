@@ -9,6 +9,8 @@ class Saida extends Eloquent {
 	 */
 	protected $softDelete = true;
 
+	protected $table = 'saidas';
+
 	protected $garded = [
 		"id",
 		"created_at",

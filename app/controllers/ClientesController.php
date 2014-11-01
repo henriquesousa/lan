@@ -84,10 +84,7 @@ class ClientesController extends BaseController {
 	public function show($id)
 	{
 
-		if (Request::ajax()) {
-			$funci = Cliente::find(Input::get('id'));
-			return $funci;
-		}
+		
 	}
 
 	/**

@@ -87,10 +87,7 @@ class FuncionariosController extends BaseController {
 	public function show($id)
 	{
 
-		if (Request::ajax()) {
-			$funci = Funcionario::find(Input::get('id'));
-			return $funci;
-		}
+		
 	}
 
 	/**

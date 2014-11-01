@@ -7,6 +7,8 @@ class Status extends \Eloquent {
 		// 'title' => 'required'
 	];
 
+	protected $table = 'status';
+
 	// Don't forget to fill this array
 	protected $fillable = [];
 
